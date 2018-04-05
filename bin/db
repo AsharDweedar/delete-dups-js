@@ -1,0 +1,6 @@
+const mongoose = require('mongoose');
+
+var connectionURL = 'mongodb://localhost/deleteDups' ; 
+mongoose.connect(connectionURL,  {});
+
+

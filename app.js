@@ -3,12 +3,12 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var dbConn = require('./bin/db');
 
 var app = express();
 
 var Router = require('./routes/index');
 
-// view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -17,9 +17,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
-// catch 404 and forward to error handler
-app.get("/", Router["get"]["/"])
 
 // error handler
 app.use(function(err, req, res, next) {
@@ -31,5 +28,10 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.get("/", Router["get"]["/"])
+app.get("/paths", Router["get"]["/paths"])
+app.post("/paths", Router["post"]["/paths"])
 
 module.exports = app;
