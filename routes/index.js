@@ -4,7 +4,10 @@ const ObjectId = require('mongoose').Types.ObjectId;
 
 module.exports = {
   "get": {
-    "/": (req, res) => { res.status(200).send("OK") },
+    "/icon": (req, res) => {
+      console.log("this")
+      res.status(200).sendFile("../favicon.ico");
+    },
     "/paths": (req, res) => {
        paths.find({}, (err, data) => {
          res.status(200).send(JSON.stringify(data));
