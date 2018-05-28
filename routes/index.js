@@ -7,7 +7,9 @@ module.exports = {
     "/": (req, res) => { res.status(200).send("OK") },
     "/paths": (req, res) => {
       paths.find({}, (err, data) => {
-        res.status(200).send(JSON.stringify(data));
+        res
+        .status(200)
+        .send(JSON.stringify(data));
       })
     }
   },
@@ -17,7 +19,9 @@ module.exports = {
           ...req.body,
 	  _id: new ObjectId()
 	}).save();
-      res.send(202).send(JSON.stringify(val));
+      res
+      .send(202)
+      .send(JSON.stringify(val));
     }
   }
 }
