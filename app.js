@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+
+// connect to database on port 27017
 var dbConn = require('./bin/db');
 
 var app = express();

@@ -6,9 +6,9 @@ module.exports = {
   "get": {
     "/": (req, res) => { res.status(200).send("OK") },
     "/paths": (req, res) => {
-       paths.find({}, (err, data) => {
-         res.status(200).send(JSON.stringify(data));
-       })
+      paths.find({}, (err, data) => {
+        res.status(200).send(JSON.stringify(data));
+      })
     }
   },
   "post": {
